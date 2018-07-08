@@ -52,6 +52,24 @@
 		<p>{{name}}</p>
 	</div>
 
+	<!-- Shorthands -->
+
+	<div id="shorts">
+		<button @click="counter++">Increment Counter directly</button>
+		<a :href="link">Google</a>
+		<!-- bind can be used shorthand as : -->
+	</div>
+
+	<div id="styled">
+		<div class="demo" @click="attachRed = !attachRed" :class="{red: attachRed}"></div>
+		<div class="demo" @click="attachRed = !attachRed" :class="divClasses"></div>
+		<div class="demo" :class="color"></div>
+		<div class="demo" :style="{backgroundColor: color}"></div>
+
+		<hr>
+		<input type="color" v-model="color">
+	</div>
+
 	<script src="./vue.js"></script>
 	<script src="./main.js"></script>
 </body>

@@ -60,5 +60,28 @@ new Vue({
 			return this.counter > 5 ? 'Greater than 5' : 'Smaller than 5';
 		},
 	},
+	watch: {
+		counter(value) {
+			setTimeout(() => {
+				this.counter = 0;
+			}, 2000);
+		},
+	},
 	methods: {},
+});
+
+new Vue({
+	el: '#styled',
+	data: {
+		attachRed: false,
+		color: 'green',
+	},
+	computed: {
+		divClasses() {
+			return {
+				blue: !this.attachRed,
+				green: !this.attachRed,
+			};
+		},
+	},
 });
