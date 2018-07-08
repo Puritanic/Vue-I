@@ -6,16 +6,50 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Vue basics</title>
+	<link rel="stylesheet" href="main.css">
 </head>
 
 <body>
 
 	<div id="app">
 		<input type="text" v-on:input="changeTitle" />
+		<h1 v-once>{{title}}</h1>
 		<p>{{title}}</p>
-		<p>{{sayHello()}}
+		<p v-once>{{sayHello()}}
 			<a v-bind:href="link">Google</a>
 		</p>
+		<p v-html="finishedLink"></p>
+	</div>
+	<hr>
+	<hr>
+
+
+	<div id="counter">
+		<button v-on:click="incrementCounter">Increment Counter</button>
+		<button v-on:click="counter++">Increment Counter directly</button>
+		<button v-on:click="decrementCounter">Decrement Counter</button>
+		<button v-on:click="stepUp(2, $event)">Step up Counter by 2</button>
+		<p>{{counter}}</p>
+		<!-- Event modifiers -->
+		<p v-on:mousemove="updateCoords">Coordinates: {{x}} | {{y}}
+			<span v-on:mousemove="dummy">Dead spot?</span>
+			<span v-on:mousemove.stop="">Another Dead spot?</span>
+		</p>
+		<!-- Key modifiers -->
+		<input type="text" v-on:keyup.enter="alertMe">
+		<input type="text" v-on:keyup.space="alertMe">
+	</div>
+
+	<hr>
+	<hr>
+
+	<div id="model">
+		<button v-on:click="counter++">Increment Counter directly</button>
+		<button v-on:click="counter--">Decrement Counter</button>
+		<p>{{counter}}</p>
+		<p>Result: {{output}}</p>
+		<input type="text" v-model="name">
+		<p>{{name}}</p>
 	</div>
 
 	<script src="./vue.js"></script>
