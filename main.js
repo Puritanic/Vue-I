@@ -85,3 +85,21 @@ new Vue({
 		},
 	},
 });
+
+new Vue({
+	el: '#conditional',
+	data: {
+		show: true,
+	},
+});
+
+new Vue({
+	el: '#loop',
+	data: {
+		ingredients: ['meat', 'wine', 'cheese'],
+		persons: [
+			{ name: 'Alice', age: 25, color: 'red' },
+			{ name: 'Jonas', age: 27, color: 'green' },
+		],
+	},
+});

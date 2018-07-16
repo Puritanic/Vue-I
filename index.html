@@ -68,6 +68,36 @@
 
 		<hr>
 		<input type="color" v-model="color">
+		<hr>
+	</div>
+
+	<div id="conditional">
+		<p v-if="show">Can be seen</p>
+		<p v-else>Can bee seen too</p>
+		<template v-if="show">
+			<h4>Template heading</h4>
+			<p>Inside template</p>
+		</template>
+		<p v-show="show">See me</p>
+		<button @click="show = !show">Switch</button>
+	</div>
+
+	<div id="loop">
+		<ul>
+			<li v-for="(ingredient, index) in ingredients" :key="ingredient">{{ ingredient }} ({{ index }})</li>
+		</ul>
+		<template v-for="person in persons">
+			<h3>{{ person.name }}</h3>
+			<h3>{{ person.age }}</h3>
+		</template>
+		<ul>
+			<li v-for="person in persons">
+				<div v-for="(value, key, index) in person">
+					{{ key }} : {{ value }} ({{ index }})
+				</div>
+			</li>
+		</ul>
+		<span v-for="n in 10">{{ n }}</span>
 	</div>
 
 	<script src="./vue.js"></script>
